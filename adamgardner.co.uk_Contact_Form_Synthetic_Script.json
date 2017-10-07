@@ -1,0 +1,103 @@
+{
+  "name": "adamgardner.co.uk",
+  "steps": [{
+    "description": "Homepage",
+    "url": "https://adamgardner.co.uk/",
+    "actions": [{
+      "url": "https://adamgardner.co.uk",
+      "targetWindow": "gomez_top[0]",
+      "type": "navigate"
+    }, {
+      "criteria": "page_complete",
+      "type": "wait"
+    }, {
+      "criteria": "step_match",
+      "match": "Posted",
+      "type": "validate"
+    }]
+  }, {
+    "description": "About Me Page",
+    "url": "https://adamgardner.co.uk/about/",
+    "actions": [{
+      "target": {
+        "targetWindow": "gomez_top[0]",
+        "locators": [
+          ["css", "a:contains(\"About Me\")"]
+        ]
+      },
+      "type": "click"
+    }, {
+      "criteria": "page_complete",
+      "type": "wait"
+    }, {
+      "criteria": "step_match",
+      "match": "About Me",
+      "type": "validate"
+    }]
+  }, {
+    "description": "Contact Me Page",
+    "url": "https://adamgardner.co.uk/contact/",
+    "actions": [{
+      "target": {
+        "targetWindow": "gomez_top[0]",
+        "locators": [
+          ["css", "a:contains(\"Contact Me\")"]
+        ]
+      },
+      "type": "click"
+    }, {
+      "criteria": "page_complete",
+      "type": "wait"
+    }, {
+      "criteria": "step_match",
+      "match": "Contact Me",
+      "type": "validate"
+    }]
+  }, {
+    "description": "Contact Form Submission",
+    "url": "https://adamgardner.co.uk/contact/",
+    "actions": [{
+      "target": {
+        "targetWindow": "gomez_top[0]",
+        "locators": [
+          ["css", "input[type=\"text\"][name=\"your-name\"]"]
+        ]
+      },
+      "encrypted": false,
+      "value": "Synthetic Test",
+      "type": "setInputValue"
+    }, {
+      "target": {
+        "targetWindow": "gomez_top[0]",
+        "locators": [
+          ["css", "input[type=\"email\"][name=\"your-email\"]"]
+        ]
+      },
+      "encrypted": false,
+      "value": "synthetic-test@adamgardner.co.uk",
+      "type": "setInputValue"
+    }, {
+      "target": {
+        "targetWindow": "gomez_top[0]",
+        "locators": [
+          ["css", "textarea[name=\"your-message\"]"]
+        ]
+      },
+      "value": "This is a test script to demonstrate the JSON storage capability of Dynatrace Synthetic.",
+      "encrypted": false,
+      "type": "setInputValue"
+    }, {
+      "target": {
+        "targetWindow": "gomez_top[0]",
+        "locators": [
+          ["css", "input[type=\"submit\"]"]
+        ]
+      },
+      "type": "click"
+    }, {
+      "criteria": "step_match",
+      "match": "Thank you for your message",
+      "type": "validate"
+    }]
+  }]
+}

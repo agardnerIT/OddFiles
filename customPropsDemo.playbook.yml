@@ -15,6 +15,10 @@
     debug:
       msg: "{{ item.hostname }}"
     loop: "{{ customProperties }}"
+    
+  - name: "Print 'foo2' for each host. Should be 'second' and 'fourth'."
+    debug:
+      msg: "{{ item.customProperties.foo2 }}"
 
   - name: "Print 'foo' for host2. Should be 'third'."
     debug:

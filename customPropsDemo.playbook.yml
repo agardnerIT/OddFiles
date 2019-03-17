@@ -3,26 +3,26 @@
   hosts: local
 
   vars:
-    hosts: "{{ lookup('file', 'customProperties.json') }}"
+    hostList: "{{ lookup('file', 'customProperties.json') }}"
 
   tasks:
 
   - name: "Output all customProperties as-is"
     debug:
-      msg: "{{ hosts }}"
+      msg: "{{ hostList }}"
 
   - name: "Print all hostnames"
     debug:
       msg: "{{ item.hostname }}"
-    loop: "{{ hosts }}"
+    loop: "{{ hostList }}"
     
   - name: "Print 'foo2' for each host. Should be 'second' and 'fourth'."
     debug:
-      msg: "{{ item.hosts.foo2 }}"
-    loop: "{{ hosts }}"
+      msg: "{{ item.customProperties.foo2 }}"
+    loop: "{{ hostList }}"
 
   - name: "Print 'foo' for host2. Should be 'third'."
     debug:
-      msg: "{{ item.hosts.foo }}"
-    loop: "{{ hosts }}"
+      msg: "{{ item.customProperties.foo }}"
+    loop: "{{ hostList }}"
     when: "item.hostname == 'host2'"

@@ -1,0 +1,11 @@
+[{
+  "hostname": "IP-ADDRESS",
+  "hostGroup": "Whatever"
+}, {
+   "hostname": "IP-ADDRESS",
+   "hostGroup": "MyHostGroup"
+}, {
+   "hostname": "IP-ADDRESS",
+   "hostGroup": "SecondGroup"
+}
+]

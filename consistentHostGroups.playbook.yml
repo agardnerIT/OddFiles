@@ -1,0 +1,42 @@
+---
+- name: Ensure Consistent HOST_GROUP
+  hosts: all
+
+  vars:
+    hostList: "{{ lookup('file', 'hostList.json') }}"
+    oneagent_installer_script_url: "https://***.live.dynatrace.com/api/v1/deployment/installer/agent/unix/default/latest?Api-Token=***&arch=x86&flavor=default"
+    defaultHostGroup: "DefaultGroup"
+
+  tasks:
+  - name: Check if Dynatrace OneAgent is already installed
+    stat:
+      path: /opt/dynatrace/oneagent/agent/lib64/liboneagentos.so
+    register: agent_installed
+
+  - name: Set Host Group Facts
+    set_fact:
+      hostGroup: "{{ item.hostGroup | default(defaultHostGroup) }}"
+    when: item.hostname == inventory_hostname
+    loop: "{{ hostList }}"
+
+  - name: Download OneAgent
+    get_url:
+      url: "{{ oneagent_installer_script_url }}"
+      dest: "/tmp/dynatrace-oneagent.sh"
+    when: agent_installed.stat.exists == False
+
+  - name: Install Agent
+    shell: "sh /tmp/dynatrace-oneagent.sh APP_LOG_CONTENT_ACCESS=1 HOST_GROUP={{ hostvars[inventory_hostname].hostGroup | default(defaultHostGroup)  }}"
+    become: yes
+    when: agent_installed.stat.exists == False
+
+  - name: Get Current Host Group
+    shell: "/opt/dynatrace/oneagent/agent/tools/lib64/oneagentutil --get-host-group"
+    become: yes
+    when: agent_installed.stat.exists == True
+    register: currentHostGroup
+
+  - name: Update HOST_GROUP
+    shell: "/opt/dynatrace/oneagent/agent/tools/lib64/oneagentutil --set-host-group {{ hostvars[inventory_hostname].hostGroup | default(defaultHostGroup) }} && sudo service oneagent restart"
+    become: yes
+    when: agent_installed.stat.exists == True and currentHostGroup.stdout != (hostvars[inventory_hostname].hostGroup | default(defaultHostGroup))

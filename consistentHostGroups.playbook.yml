@@ -7,7 +7,7 @@
     oneagent_installer_script_url: "https://***.live.dynatrace.com/api/v1/deployment/installer/agent/unix/default/latest?Api-Token=***&arch=x86&flavor=default"
     defaultHostGroup: "DefaultGroup"
 
-tasks:
+  tasks:
   - name: Check if Dynatrace OneAgent is already installed
     stat:
       path: /opt/dynatrace/oneagent/agent/lib64/liboneagentos.so

@@ -48,6 +48,7 @@
     when: item.hostname == inventory_hostname
 
   - name: "Remove File if it Exists"
+    become: yes
     file:
       path: /var/lib/dynatrace/oneagent/agent/config/hostcustomproperties.conf
       state: absent

@@ -4,7 +4,7 @@
 
   vars:
     hostList: "{{ lookup('file', 'hostList.json') }}"
-    oneagent_installer_script_url: "https://fqp43822.live.dynatrace.com/api/v1/deployment/installer/agent/unix/default/latest?Api-Token=Cm7sr7SqTW64mgbbKHIn7&arch=x86&flavor=default"
+    oneagent_installer_script_url: "https://***.live.dynatrace.com/api/v1/deployment/installer/agent/unix/default/latest?Api-Token=***&arch=x86&flavor=default"
     defaultHostGroup: "DefaultGroup"
 
   tasks:

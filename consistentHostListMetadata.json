@@ -1,0 +1,19 @@
+[{
+   "hostname": "13.250.121.90",
+   "hostGroup": "staging",
+   "metadata": {
+       "Location": "DE",
+       "ConsumingRegion": "Global",
+       "Owner": "Alice",
+       "ChargeCode": "Central"
+   }
+}, {
+   "hostname": "18.136.120.123",
+   "hostGroup": "production",
+   "metadata": {
+       "Location": "FR",
+       "ConsumingRegion": "EU",
+       "Owner": "Bob",
+       "ChargeCode": "GLOBAL123"
+   }
+}]

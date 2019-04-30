@@ -1,0 +1,9 @@
+---
+- name: No Ops Playbook
+  hosts: all
+  
+  tasks:
+  
+  - name: Restart HTTPD
+    service:
+      state: started

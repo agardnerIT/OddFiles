@@ -1,6 +1,7 @@
 ---
 - name: No Ops Playbook
   hosts: all
+  become: yes
   
   tasks:
   

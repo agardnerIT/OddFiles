@@ -1,5 +1,5 @@
 ---
-- name: Ensure Consistent HOST_GROUP
+- name: Ensure Consistent Host Group
   hosts: apache
 
   vars:

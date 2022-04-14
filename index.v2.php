@@ -2,7 +2,7 @@
   $delay = 5;
   sleep($delay);
   $environment = getenv("Environment");
-  $version = "v2";
+  $version = getenv("DT_RELEASE_VERSION");
   echo "Version: $version<br />";
   echo "Delay: $delay second(s)<br />";
   echo "Environment: $environment";

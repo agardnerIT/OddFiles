@@ -1,0 +1,10 @@
+---
+- name: Keptn Integration
+  hosts: all
+  
+  tasks:
+  
+  #- name: Restart HTTPD
+  #  service:
+  #    name: httpd
+  #    state: started

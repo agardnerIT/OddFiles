@@ -31,8 +31,8 @@
           stage: "{{ keptnStage }}"
           status: "succeeded"
           result: "pass"
-        source: "https://example.com/awx",
-        specversion: "1.0",
-        triggeredid: "{{ keptnTriggeredID }}",
-        shkeptncontext: "{{ keptnContext }}",
+        source: "https://example.com/awx"
+        specversion: "1.0"
+        triggeredid: "{{ keptnTriggeredID }}"
+        shkeptncontext: "{{ keptnContext }}"
         type: "sh.keptn.event.{{ task_parts[3] }}.started"

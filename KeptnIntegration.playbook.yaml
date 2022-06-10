@@ -3,11 +3,7 @@
   hosts: all
   
   tasks:
-      
-  - name: Print Extra Vars
-    ansible.builtin.debug:
-      msg: "Keptn Task is {{ keptnTask }}. Foo is {{ foo }}"
-  
+ 
   - name: Split Task and Store Parts
     ansible.builtin.set_fact:
       task_parts: "{{ keptnTask.split('.') }}"

@@ -4,6 +4,9 @@
   
   tasks:
  
+  # Input for keptnTask is "{{ .type }}" coming from the Keptn webhook service
+  # This comes in as "sh.keptn.event.taskname.triggered"
+  # We only need the "taskname" and we add ".started" or ".finished" according to what we need
   - name: Split Task and Store Parts
     ansible.builtin.set_fact:
       task_parts: "{{ keptnTask.split('.') }}"

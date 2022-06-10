@@ -37,5 +37,5 @@
         "specversion": "1.0",
         "triggeredid": "{{ keptnTriggeredID }}",
         "shkeptncontext": "{{ keptnContext }}",
-        "type": "sh.keptn.event.${task}.started"
+        "type": "sh.keptn.event.{{ task_parts[3] }}.started"
       }

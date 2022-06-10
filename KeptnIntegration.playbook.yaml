@@ -18,12 +18,12 @@
       
   - name: Send Started Event to Keptn
     ansible.builtin.uri:
-      uri: {{ keptnEndpoint }}/api/v1/event
+      uri: "{{ keptnEndpoint }}/api/v1/event"
       method: POST
       body_format: json
       headers:
         Content-Type: application/json
-        x-token: {{ keptnAPIToken }} # This should be encrypted and stored as a secret NEVER in plaintext
+        x-token: "{{ keptnAPIToken }}" # This should be encrypted and stored as a secret NEVER in plaintext
       body: |
       {
         "data": {

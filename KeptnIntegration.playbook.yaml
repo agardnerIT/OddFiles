@@ -24,18 +24,15 @@
       headers:
         Content-Type: application/json
         x-token: "{{ keptnAPIToken }}" # This should be encrypted and stored as a secret NEVER in plaintext
-      body: |
-      {
-        "data": {
-          "project": "{{ keptnProject }}",
-          "service": "{{ keptnService }}",
-          "stage": "{{ keptnStage }}",
-          "status": "succeeded",
-          "result": "pass"
-        },
-        "source": "https://example.com/awx",
-        "specversion": "1.0",
-        "triggeredid": "{{ keptnTriggeredID }}",
-        "shkeptncontext": "{{ keptnContext }}",
-        "type": "sh.keptn.event.{{ task_parts[3] }}.started"
-      }
+      body:
+        data:
+          project: "{{ keptnProject }}"
+          service: "{{ keptnService }}"
+          stage: "{{ keptnStage }}"
+          status: "succeeded"
+          result: "pass"
+        source: "https://example.com/awx",
+        specversion: "1.0",
+        triggeredid: "{{ keptnTriggeredID }}",
+        shkeptncontext: "{{ keptnContext }}",
+        type: "sh.keptn.event.{{ task_parts[3] }}.started"

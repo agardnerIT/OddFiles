@@ -6,7 +6,31 @@
       
   - name: Print Extra Vars
     ansible.builtin.debug:
-      msg: "Keptn Task is {{ keptnTask }} \nFoo is {{ foo }}"
+      msg: "Keptn Task is {{ keptnTask }}. Foo is {{ foo }}"
+  
+  - name: Split Task and Store Parts
+    ansible.builtin.set_fact:
+      task_parts: "{{ keptnTask.split('.') }}"
+  
+  - name: Print Task Part 0
+    ansible.builtin.debug:
+      msg: "Task part 0: {{ task_parts[0] }}"
+  
+  - name: Print Task Part 1
+    ansible.builtin.debug:
+      msg: "Task part 1: {{ task_parts[1] }}"
+  
+  - name: Print Task Part 2
+    ansible.builtin.debug:
+      msg: "Task part 2: {{ task_parts[2] }}"
+      
+  - name: Print Task Part 3
+    ansible.builtin.debug:
+      msg: "Task part 3: {{ task_parts[3] }}"
+      
+  - name: Print Task Part 4
+    ansible.builtin.debug:
+      msg: "Task part 4: {{ task_parts[4] }}"
   
   #- name: Restart HTTPD
   #  service:

@@ -7,6 +7,10 @@
   - name: Debug
     ansible.builtin.debug:
       msg: "Hello World"
+      
+  - name: Print Extra Vars
+    ansible.builtin.debug:
+      msg: "Foo is {{ foo }}"
   
   #- name: Restart HTTPD
   #  service:

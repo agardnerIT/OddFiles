@@ -18,7 +18,7 @@
       
   - name: Send Started Event to Keptn
     ansible.builtin.uri:
-      uri: "{{ keptnEndpoint }}/api/v1/event"
+      url: "{{ keptnEndpoint }}/api/v1/event"
       method: POST
       body_format: json
       headers:

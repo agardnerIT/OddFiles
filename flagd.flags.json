@@ -92,7 +92,7 @@
         "green": "#00FF00",
         "yellow": "#FFFF00"
       },
-      "defaultVariant": "red",
+      "defaultVariant": "blue",
       "state": "ENABLED",
       "targeting": {
         "if": [

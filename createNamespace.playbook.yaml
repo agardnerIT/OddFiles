@@ -1,0 +1,13 @@
+---
+- name: No Ops Playbook
+  hosts: all
+  become: yes
+  
+  tasks:
+  
+  - name: Create a k8s namespace
+    kubernetes.core.k8s:
+      name: testing
+      api_version: v1
+      kind: Namespace
+      state: present

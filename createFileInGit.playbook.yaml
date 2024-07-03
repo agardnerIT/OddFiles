@@ -70,5 +70,5 @@
       command: "git push"
       chdir: ./oddfiles
       responses:
-        Username: "{{ githubusername }}"
-        Password: "{{ githubpassword }}"
+        Username: "{{ ansible_username }}"
+        Password: "{{ ansible_password }}"

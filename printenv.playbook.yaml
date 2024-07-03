@@ -1,0 +1,11 @@
+---
+- name: Print envs
+  hosts: all
+  gather_facts: false
+  connection: local
+
+  tasks:
+  - name: Print environment vars
+    debug:
+      msg: "{{ ansible_env }}"
+  

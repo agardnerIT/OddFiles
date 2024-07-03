@@ -15,11 +15,13 @@
   tasks:
   - name: Install pip3
     become: yes
+    ignore_errors: true
     ansible.builtin.package:
       name: python-pip3
       state: present
 
   - name: Install pexpect
+    ignore_errors: true
     pip:
       name: pexpect
 

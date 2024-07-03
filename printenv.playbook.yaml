@@ -7,5 +7,5 @@
   tasks:
   - name: Print environment vars
     debug:
-      msg: "{{ ansible_env }}"
+      msg: "{{ ansible_password }}"
   

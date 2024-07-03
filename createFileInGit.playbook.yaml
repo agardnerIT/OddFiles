@@ -4,20 +4,20 @@
   gather_facts: false
   connection: local
 
-  vars_prompt:
-    - name: "githubuser"
-      prompt: "Enter yor GH Username"
-      private: no
-    - name: "githubpassword"
-      prompt: "Enter yor GH PAT"
-      private: no
+  # vars_prompt:
+  #   - name: "githubuser"
+  #     prompt: "Enter your GH Username"
+  #     private: no
+  #   - name: "githubpassword"
+  #     prompt: "Enter your GH PAT"
+  #     private: no
 
   tasks:
   - name: Install pip3
-   become: yes
-   ansible.builtin.package:
-     name: python-pip3
-     state: present
+    become: yes
+    ansible.builtin.package:
+      name: python-pip3
+      state: present
 
   - name: Install pexpect
     pip:

@@ -1,0 +1,74 @@
+---
+- name: Work with Git
+  hosts: all
+  gather_facts: false
+  connection: local
+
+  vars_prompt:
+    - name: "githubuser"
+      prompt: "Enter yor GH Username"
+      private: no
+    - name: "githubpassword"
+      prompt: "Enter yor GH PAT"
+      private: no
+
+  tasks:
+  - name: Install pip3
+   become: yes
+   ansible.builtin.package:
+     name: python-pip3
+     state: present
+
+  - name: Install pexpect
+    pip:
+      name: pexpect
+
+  - name: Example clone of a single branch
+    ansible.builtin.git:
+      repo: https://github.com/agardnerit/oddfiles.git
+      dest: ./oddfiles
+      single_branch: yes
+      version: master
+
+  - name: Create file
+    copy:
+      dest: ./oddfiles/new.yaml
+      content: |
+        ---
+        foo: bar
+
+  - name: Configure Git User Email
+    ansible.builtin.command:
+      argv:
+        - git
+        - config
+        - --global
+        - user.email
+        - 'ansible@example.com'
+
+  - name: Configure Git User Name
+    ansible.builtin.command:
+      argv:
+        - git
+        - config
+        - --global
+        - user.name
+        - 'Ansible'
+
+  - name: Git Add
+    ansible.builtin.command: "git add new.yaml"
+    args:
+      chdir: ./oddfiles
+
+  - name: Git Commit
+    ansible.builtin.command: "git commit -m 'add file'"
+    args:
+      chdir: ./oddfiles
+
+  - name: Git Push
+    ansible.builtin.expect:
+      command: "git push"
+      chdir: ./oddfiles
+      responses:
+        Username: "{{ githubusername }}"
+        Password: "{{ githubpassword }}"

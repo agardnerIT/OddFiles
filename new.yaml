@@ -1,2 +1,5 @@
 ---
-foo: bar
+"primary_version": "1.0.1"
+"primary_load": "100"
+"canary_version": "2.0.2"
+"canary_load": "0"

@@ -13,6 +13,10 @@
   #     private: no
 
   tasks:
+  - name: Print Stuff
+    ansible.builtin.debug:
+      msg: Primary Version: {{ primary_version }} has traffic percentage: {{ primary_load }}%
+      
   - name: Install pip3
     become: yes
     ignore_errors: true

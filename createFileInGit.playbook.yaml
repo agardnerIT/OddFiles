@@ -42,7 +42,10 @@
       dest: ./oddfiles/new.yaml
       content: |
         ---
-        foo: bar
+        "primary_version": "{{ primary_version }}"
+        "primary_load": "{{ primary_load }}"
+        "canary_version": "{{ canary_version }}"
+        "canary_load": "{{ canary_load }}"
 
   - name: Configure Git User Email
     ansible.builtin.command:

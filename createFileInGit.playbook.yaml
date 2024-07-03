@@ -16,13 +16,14 @@
   - name: Print Stuff
     ansible.builtin.debug:
       msg: "Primary Version: {{ primary_version }} has traffic percentage: {{ primary_load }}%"
-      
-  - name: Install pip3
-    become: yes
-    ignore_errors: true
-    ansible.builtin.package:
-      name: python-pip3
-      state: present
+
+  # Doesn't work (and isn't needed) on codespaces?
+  # - name: Install pip3
+  #   become: yes
+  #   ignore_errors: true
+  #   ansible.builtin.package:
+  #     name: python-pip3
+  #     state: present
 
   - name: Install pexpect
     ignore_errors: true

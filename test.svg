@@ -1,7 +1,7 @@
-<svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
-     <script type="text/javascript">
-          window.addEventListener('load',function(){
-            alert('Hi');
-          })
-     </script>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<path d="M90,18c-90-45-115,102,0,69v-21l4-3h-23l-8,4h16v19c-80,15-65-106,2-63l-4,5l4-1z" fill="#CCC" stroke="#DDD" stroke-width="2" stroke-linejoin="round"/>
+<path d="M87,15c-90-45-115,102,0,69v-21l4-3h-23l-8,4h16v19c-80,15-65-106,2-63l-4,5l4-1z" fill="#00F"/>
+<script>
+    alert("Hello world");
+</script>
 </svg>

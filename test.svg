@@ -1,11 +1,3 @@
 <svg width="200" height="100" xmlns="http://www.w3.org/2000/svg">
   <circle id="circle1" cx="50" cy="50" r="25" style="fill:red;" />
 </svg>
-
-<input type="button" value="Change Radius" onclick="changeRadius()" />
-
-<script>
-function changeRadius() {
-  document.getElementById("circle1").setAttribute("r", "50");
-}
-</script>
